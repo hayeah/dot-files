@@ -1,0 +1,22 @@
+[alias]
+	ai = add --interactive
+	s = status
+	d = diff
+	c = commit
+	cm = commit -m
+      cma = commit -a -m
+	cc = commit -am 
+	ca = commit --amend -C HEAD
+	caa = commit -a --amend -C HEAD
+	a = add
+	co = checkout
+	b = branch
+	l = log
+	f = fetch
+  r = reset
+  r1 = reset HEAD^
+  r2 = reset HEAD^^
+
+[github]
+	user = hayeah
+	token = 8555110edea3b90c0ce9b4f3a2cd7bba
