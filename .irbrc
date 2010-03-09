@@ -2,7 +2,10 @@ require 'rubygems'
 require 'looksee/shortcuts'
 
 require 'irb'
+require 'irb/completion'
 require 'irb/ext/save-history'
+
+require 'irb'
 
 require 'pp'
 # hacks to get history to work..
@@ -10,8 +13,14 @@ at_exit do
   IRB::HistorySavingAbility.create_finalizer.call
 end
 
-require 'bond'
-require 'bond/completion'
+# require 'bond'
+# require 'bond/completion'
+
+require 'irb/completion'
+
+require 'wirble'
+Wirble.init
+Wirble.colorize
 
 # ARGV.concat [ "--readline",
 #               "--prompt-mode",
