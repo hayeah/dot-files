@@ -45,8 +45,8 @@ alias rk='rake'
 alias utgz='tar -xzf'
 alias utgz2='tar -xjf'
 
-alias porti='port install'
-alias ports='port install'
+alias porti='sudo port install'
+alias ports='port search'
 
 alias gemi='gem install --no-ri --no-rdoc'
 alias jgemi='jgem install --no-ri --no-rdoc'
