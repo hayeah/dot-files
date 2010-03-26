@@ -13,11 +13,17 @@ PATH=$PATH:~/.gem/ruby/1.8/bin
 PATH=$PATH:~/src/rabbitmq-server-1.7.2/scripts
 PATH=$PATH:~/src/scala-2.8.0.Beta1-prerelease/bin
 PATH=$PATH:~/src/jruby-1.4.0/bin
+PATH=$PATH:/opt/local/lib/postgresql84/bin
+
 
 # erl_call
 PATH=$PATH:/opt/local/lib/erlang/lib/erl_interface-3.6.4/bin
 
 export PATH
+
+# rvm
+
+if [[ -s /Users/howard/.rvm/scripts/rvm ]] ; then source /Users/howard/.rvm/scripts/rvm ; fi
 
 # bash_comletion
 if [ -f /opt/local/etc/bash_completion ]; then
@@ -50,6 +56,7 @@ alias ports='port search'
 
 alias gemi='gem install --no-ri --no-rdoc'
 alias jgemi='jgem install --no-ri --no-rdoc'
+alias gemdir="cd $(rvm gemdir)"
 
 # some directory aliases
 
