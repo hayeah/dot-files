@@ -54,15 +54,29 @@ alias utgz2='tar -xjf'
 alias porti='sudo port install'
 alias ports='port search'
 
+alias geml='gem list --local'
+alias gems='gem search -r'
 alias gemi='gem install --no-ri --no-rdoc'
 alias jgemi='jgem install --no-ri --no-rdoc'
 alias gemdir="cd $(rvm gemdir)"
+
+# rvm stuff
+alias rb='rvm info'
+alias gset='rvm gemset'
+alias gsetu='rvm gemset use'
+
 
 # some directory aliases
 
 alias acc='cd ~/acc'
 
-reload()
-{
+# set terminal emulator's tab
+## magic.
+tabis() {
+ echo -ne "\033]0;"$@"\007"
+}
+
+reload() {
  source ~/.bashrc
 }
+
