@@ -23,7 +23,7 @@ export PATH
 
 # rvm
 
-if [[ -s /Users/howard/.rvm/scripts/rvm ]] ; then source /Users/howard/.rvm/scripts/rvm ; fi
+if [[ -s ~/.rvm/scripts/rvm ]] ; then source ~/.rvm/scripts/rvm ; fi
 
 # bash_comletion
 if [ -f /opt/local/etc/bash_completion ]; then
@@ -62,9 +62,7 @@ alias gemdir="cd $(rvm gemdir)"
 
 # rvm stuff
 alias rb='rvm info'
-alias gset='rvm gemset'
-alias gsetu='rvm gemset use'
-
+alias rgem='rvm gemset'
 
 # some directory aliases
 
