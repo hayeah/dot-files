@@ -2,10 +2,6 @@
 # see /usr/share/doc/bash/examples/startup-files (in the package bash-doc)
 # for examples
 
-# If not running interactively, don't do anything
-[ -z "$PS1" ] && return
-
-
 PATH=/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/bin:/usr/X11/bin
 PATH=$PATH:/opt/local/bin:/opt/local/sbin
 PATH=$PATH:~/bin
@@ -15,15 +11,16 @@ PATH=$PATH:~/src/scala-2.8.0.Beta1-prerelease/bin
 PATH=$PATH:~/src/jruby-1.4.0/bin
 PATH=$PATH:/opt/local/lib/postgresql84/bin
 
-
 # erl_call
 PATH=$PATH:/opt/local/lib/erlang/lib/erl_interface-3.6.4/bin
 
 export PATH
 
-# rvm
-
+# load rvm
 if [[ -s ~/.rvm/scripts/rvm ]] ; then source ~/.rvm/scripts/rvm ; fi
+
+# If not running interactively, don't do anything
+[ -z "$PS1" ] && return
 
 # bash_comletion
 if [ -f /opt/local/etc/bash_completion ]; then
@@ -57,16 +54,37 @@ alias ports='port search'
 alias geml='gem list --local'
 alias gems='gem search -r'
 alias gemi='gem install --no-ri --no-rdoc'
+
+gemd() {
+  if [[ ! -z "$1" ]] ; then
+      gemfile=$(gem which $1)
+      if [[ ! -z "$gemfile" ]] ; then
+          pushd `pwd`
+          cd $(dirname $gemfile)
+      fi
+  else
+      echo 'which gemdir you want to go?'
+  fi
+}
+
 alias jgemi='jgem install --no-ri --no-rdoc'
-alias gemdir="cd $(rvm gemdir)"
+# some directory aliases
+alias acc='cd ~/acc'
+
 
 # rvm stuff
 alias rb='rvm info'
-alias rgem='rvm gemset'
 
-# some directory aliases
+unset -f gemset
+gemset() {
+  if [[ $# == 1 ]] ; then
+      rvm 'gemset' use $1
+  else
+      echo "current: $(rvm gemset name)"
+      rvm 'gemset' list
+  fi
+}
 
-alias acc='cd ~/acc'
 
 # set terminal emulator's tab
 ## magic.
