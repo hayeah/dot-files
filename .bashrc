@@ -28,6 +28,9 @@ if [ -f /opt/local/etc/bash_completion ]; then
   # source /etc/bash_completion
 fi
 
+# don't save duplicate history entries
+HISTIGNORE="&:[ ]*:exit"
+
 PS1='
 \w
 > '
