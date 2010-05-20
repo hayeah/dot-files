@@ -28,13 +28,14 @@ if [ -f /opt/local/etc/bash_completion ]; then
   # source /etc/bash_completion
 fi
 
-# don't save duplicate history entries
 HISTIGNORE="&:[ ]*:exit"
 
+# prompt
 PS1='
 \w
 > '
 export PS1
+
 
 # some more ls aliases
 alias ls='ls -G'
@@ -46,7 +47,6 @@ export TERM=xterm-color
 export CLICOLOR=1
 export LSCOLORS=gxFxCxDxBxegedabagacad
 
-alias apt='aptitude'
 alias rk='rake'
 alias utgz='tar -xzf'
 alias utgz2='tar -xjf'
@@ -57,6 +57,8 @@ alias ports='port search'
 alias geml='gem list --local'
 alias gems='gem search -r'
 alias gemi='gem install --no-ri --no-rdoc'
+
+alias g='git'
 
 gemd() {
   if [[ ! -z "$1" ]] ; then
@@ -89,6 +91,16 @@ gemset() {
 }
 
 
+# git stuff
+
+git-fuss() {
+    git rebase -i HEAD~"$1"
+}
+
+git-unstage() {
+    git reset HEAD "$1"
+}
+
 # set terminal emulator's tab
 ## magic.
 tabis() {
@@ -98,4 +110,3 @@ tabis() {
 reload() {
  source ~/.bashrc
 }
-
