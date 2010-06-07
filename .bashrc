@@ -8,13 +8,20 @@ PATH=$PATH:~/bin
 PATH=$PATH:~/.gem/ruby/1.8/bin
 PATH=$PATH:~/src/rabbitmq-server-1.7.2/scripts
 PATH=$PATH:~/src/scala-2.8.0.Beta1-prerelease/bin
-PATH=$PATH:~/src/jruby-1.4.0/bin
+PATH=$PATH:~/.rvm/rubies/jruby-1.5.0.RC1/bin
 PATH=$PATH:/opt/local/lib/postgresql84/bin
+# ec2
+export EC2_HOME=~/ec2
+export EC2_PRIVATE_KEY=`ls ~/ec2/pk-*.pem`
+export EC2_CERT=`ls ~/ec2/cert-*.pem`
+PATH=$PATH:~/ec2/bin
 
 # erl_call
 PATH=$PATH:/opt/local/lib/erlang/lib/erl_interface-3.6.4/bin
 
 export PATH
+
+export JAVA_HOME=/System/Library/Frameworks/JavaVM.framework/Home/
 
 # load rvm
 if [[ -s ~/.rvm/scripts/rvm ]] ; then source ~/.rvm/scripts/rvm ; fi
