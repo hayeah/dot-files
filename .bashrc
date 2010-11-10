@@ -5,16 +5,19 @@
 PATH=/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/bin:/usr/X11/bin
 PATH=$PATH:/opt/local/bin:/opt/local/sbin
 PATH=$PATH:~/bin
+PATH=$PATH:~/.rvm/gems/jruby-1.5.1/bin
 PATH=$PATH:~/.gem/ruby/1.8/bin
 PATH=$PATH:~/src/rabbitmq-server-1.7.2/scripts
 PATH=$PATH:~/src/scala-2.8.0.Beta1-prerelease/bin
-PATH=$PATH:~/.rvm/rubies/jruby-1.5.0.RC1/bin
 PATH=$PATH:/opt/local/lib/postgresql84/bin
 # ec2
 export EC2_HOME=~/ec2
 export EC2_PRIVATE_KEY=`ls ~/ec2/pk-*.pem`
 export EC2_CERT=`ls ~/ec2/cert-*.pem`
 PATH=$PATH:~/ec2/bin
+
+#node.js
+PATH=$PATH:/usr/local/lib/node/.npm/expresso/0.6.1/package/bin/
 
 # erl_call
 PATH=$PATH:/opt/local/lib/erlang/lib/erl_interface-3.6.4/bin
@@ -67,6 +70,17 @@ alias gemi='gem install --no-ri --no-rdoc'
 
 alias g='git'
 
+alias ec2='ssh -i ~/.ssh/ec2_id_rsa ubuntu@rere'
+alias bess='ssh bess@69.164.222.28'
+
+c(){
+  cd ~/"$1"
+}
+
+rmt() {
+  rm $@ && touch $@
+}
+
 gemd() {
   if [[ ! -z "$1" ]] ; then
       gemfile=$(gem which $1)
@@ -106,6 +120,15 @@ git-fuss() {
 
 git-unstage() {
     git reset HEAD "$1"
+}
+
+git-now() {
+    git cma "`date`"
+}
+        
+
+flushdns() {
+ dscacheutil -flushcache
 }
 
 # set terminal emulator's tab

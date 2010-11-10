@@ -2,9 +2,10 @@
 require 'rubygems'
 require 'pp'
 
+#require 'looksee'
+#require 'looksee/shortcuts'
+
 begin
-  
-  require 'looksee/shortcuts'
 
   require 'irb'
   require 'irb/completion'
