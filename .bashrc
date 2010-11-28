@@ -10,6 +10,7 @@ PATH=$PATH:~/.gem/ruby/1.8/bin
 PATH=$PATH:~/src/rabbitmq-server-1.7.2/scripts
 PATH=$PATH:~/src/scala-2.8.0.Beta1-prerelease/bin
 PATH=$PATH:/opt/local/lib/postgresql84/bin
+PATH=$PATH:~/local/bin
 # ec2
 export EC2_HOME=~/ec2
 export EC2_PRIVATE_KEY=`ls ~/ec2/pk-*.pem`
