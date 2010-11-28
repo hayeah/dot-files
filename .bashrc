@@ -69,8 +69,6 @@ alias geml='gem list --local'
 alias gems='gem search -r'
 alias gemi='gem install --no-ri --no-rdoc'
 
-alias g='git'
-
 alias ec2='ssh -i ~/.ssh/ec2_id_rsa ubuntu@rere'
 alias bess='ssh bess@69.164.222.28'
 
@@ -94,13 +92,18 @@ gemd() {
   fi
 }
 
-alias jgemi='jgem install --no-ri --no-rdoc'
 # some directory aliases
 alias acc='cd ~/acc'
 
 
 # rvm stuff
-alias rb='rvm info'
+r() {
+    if [[ $# == '0' ]]; then
+        rvm info
+    else
+        rvm $@
+    fi
+}
 
 unset -f gemset
 gemset() {
@@ -112,15 +115,17 @@ gemset() {
   fi
 }
 
-
-# git stuff
-
-git-fuss() {
-    git rebase -i HEAD~"$1"
-}
-
-git-unstage() {
-    git reset HEAD "$1"
+g() {
+    if [[ $# == '0' ]]; then
+        git status
+    else
+        case $cmd in
+            fuss)
+                git rebase -i HEAD~"$2";;
+            *)
+                git $@;;
+        esac
+    fi
 }
 
 git-now() {
@@ -128,6 +133,7 @@ git-now() {
 }
         
 
+# mac
 flushdns() {
  dscacheutil -flushcache
 }
@@ -141,3 +147,4 @@ tabis() {
 reload() {
  source ~/.bashrc
 }
+export PATH=$HOME/local/bin:$PATH
