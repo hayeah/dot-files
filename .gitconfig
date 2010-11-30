@@ -4,7 +4,7 @@
 	d = diff
 	c = commit
 	cm = commit -m
-      cma = commit -a -m
+  cma = commit -a -m
 	cc = commit -am 
 	ca = commit --amend -C HEAD
 	caa = commit -a --amend -C HEAD
@@ -14,6 +14,7 @@
 	l = log
 	f = fetch
   r = reset
+  p = push
   r1 = reset HEAD^
   r2 = reset HEAD^^
 
