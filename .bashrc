@@ -123,7 +123,7 @@ g() {
             fuss)
                 git rebase -i HEAD~"$2";;
             *)
-                git $@;;
+                git "$@";;
         esac
     fi
 }
