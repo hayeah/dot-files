@@ -119,19 +119,18 @@ g() {
     if [[ $# == '0' ]]; then
         git status
     else
-        case $cmd in
+        case $1 in
             fuss)
-                git rebase -i HEAD~"$2";;
+                shift
+                git rebase -i HEAD~"$1";;
+            now)
+                shift
+                git cma "`date`";;
             *)
                 git "$@";;
         esac
     fi
 }
-
-git-now() {
-    git cma "`date`"
-}
-        
 
 # mac
 flushdns() {
