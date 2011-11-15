@@ -8,14 +8,20 @@ PATH=$PATH:~/bin
 PATH=$PATH:~/.rvm/gems/jruby-1.5.1/bin
 PATH=$PATH:~/.gem/ruby/1.8/bin
 PATH=$PATH:~/src/rabbitmq-server-1.7.2/scripts
-PATH=$PATH:~/src/scala-2.8.0.Beta1-prerelease/bin
 PATH=$PATH:/opt/local/lib/postgresql84/bin
 PATH=$PATH:~/local/bin
+# android
+PATH=$PATH:~/java/android-sdk/tools:~/java/android-sdk/platform-tools
+
 # ec2
 export EC2_HOME=~/ec2
 export EC2_PRIVATE_KEY=`ls ~/ec2/pk-*.pem`
 export EC2_CERT=`ls ~/ec2/cert-*.pem`
 PATH=$PATH:~/ec2/bin
+
+# scala
+# PATH=$PATH:~/src/scala-2.8.0.Beta1-prerelease/bin
+SCALA_HOME=/usr/local/Cellar/scala/2.8.1/
 
 #node.js
 PATH=$PATH:/usr/local/lib/node/.npm/expresso/0.6.1/package/bin/
@@ -43,8 +49,8 @@ HISTIGNORE="&:[ ]*:exit"
 
 # prompt
 PS1='
-\w
-> '
+# \w
+'
 export PS1
 
 
@@ -58,19 +64,12 @@ export TERM=xterm-color
 export CLICOLOR=1
 export LSCOLORS=gxFxCxDxBxegedabagacad
 
-alias rk='rake'
-alias utgz='tar -xzf'
-alias utgz2='tar -xjf'
-
 alias porti='sudo port install'
 alias ports='port search'
 
 alias geml='gem list --local'
 alias gems='gem search -r'
 alias gemi='gem install --no-ri --no-rdoc'
-
-alias ec2='ssh -i ~/.ssh/ec2_id_rsa ubuntu@rere'
-alias bess='ssh bess@69.164.222.28'
 
 c(){
   cd ~/"$1"
@@ -94,7 +93,7 @@ gemd() {
 
 # some directory aliases
 alias acc='cd ~/acc'
-
+alias edit='/Applications/Emacs.app/Contents/MacOS/Emacs &'
 
 # rvm stuff
 r() {
@@ -131,6 +130,55 @@ g() {
         esac
     fi
 }
+
+
+# rvm use 1.8.7-p330 --default
+alias bess='gemset besspot; cd ~/bess'
+alias quikpiq='gemset quikpiq; cd ~/quikpiq'
+alias rubish='gemset rubish; cd ~/rubish'
+alias contly='gemset contly; cd ~/contly'
+alias pvd='rvm use ruby-1.9.2-p136; gemset pvd; cd ~/pvd'
+
+alias snake='gemset snake; cd ~/snake'
+alias fork2='gemset fork2; cd ~/fork2'
+alias fork2w='fork2; cd web'
+alias bandoru='gemset bandoru; cd ~/bandoru'
+alias bandoruw='bandoru; cd web'
+
+alias photoshare='cd ~/PhotoShare; rvm use 1.8.7; rvm gemset use global'
+alias faceoff='cd ~/FaceOff; rvm gemset use global'
+alias comalisp='cd ~/comalisp; rvm use ruby-1.9.2-p136; rvm gemset use global'
+alias cupidu='cd ~/CupidYou; rvm use 1.8.7; rvm gemset use global'
+
+alias SpreadThisLink='cd ~/SpreadThisLink; rvm use ruby-1.9.3-rc1; rvm gemset use global'
+alias linkcastr='cd ~/linkcastr; rvm use ruby-1.9.3-rc1; rvm gemset use global'
+
+alias blog='cd ~/blog; rvm use ruby-1.8.7-p334; rvm gemset use global'
+
+# alias be='bundle exec'
+
+# to init a project, create the gemset
+init_project() {
+ PROJECT=$1
+ rvm gemset create $PROJECT
+ mkdir ~/$PROJECT
+}
+
+with_project() {
+ PROJECT=$1
+ # gemset $PROJECT
+ gemset global
+ cd ~/$PROJECT
+}
+
+j() {
+ javac $1.java && java $1
+}
+
+alias scalai='rlwrap scala -Xnojline'
+
+alias reremind='with_project reremind'
+alias jummpp='with_project jummpp'
 
 # mac
 flushdns() {
