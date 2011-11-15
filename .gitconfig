@@ -1,22 +1,31 @@
 [alias]
 	ai = add --interactive
+  ap = add -p
 	s = status
 	d = diff
 	c = commit
-	cm = commit -m
+  cc = commit -a
+  cm = commit -m
   cma = commit -a -m
-	cc = commit -am 
-	ca = commit --amend -C HEAD
+  ca = commit --amend -C HEAD
+  cam = commit --amend
 	caa = commit -a --amend -C HEAD
 	a = add
 	co = checkout
 	b = branch
 	l = log
 	f = fetch
-  r = reset
+  
   p = push
+  po = push origin master
+  ph = push heroku master
+  # reset
+  rh = reset --hard
   r1 = reset HEAD^
   r2 = reset HEAD^^
+  r1h = reset HEAD^ --hard
+  r2h = reset HEAD^^ --hard
+
 
 [github]
 	user = hayeah
